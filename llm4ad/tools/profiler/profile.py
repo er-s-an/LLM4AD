@@ -312,7 +312,7 @@ class ProfilerBase:
                     print(file_path)
             for sample in samples:
                 func = sample['function']
-                acc = sample['score'] if sample['score'] else float('-inf')
+                acc = sample['score'] if sample['score'] is not None else float('-inf')
                 if valid_only:
                     if acc is None or np.isinf(acc):
                         continue

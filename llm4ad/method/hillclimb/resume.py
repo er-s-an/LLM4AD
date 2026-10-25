@@ -39,7 +39,7 @@ def _get_all_samples_and_scores(path, get_algorithm=False):
             samples = json.load(f)
             for sample in samples:
                 func = sample['function']
-                acc = sample['score'] if sample['score'] else float('-inf')
+                acc = sample['score'] if sample['score'] is not None else float('-inf')
                 all_func.append(func)
                 all_score.append(acc)
                 all_algorithm.append(sample['algorithm'])
